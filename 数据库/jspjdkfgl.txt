@@ -1,0 +1,235 @@
+﻿USE [jspjdkfgl]
+GO
+/****** Object:  Table [dbo].[admin]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[admin](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NULL,
+	[pwd] [varchar](50) NULL,
+	[quanxian] [int] NULL,
+ CONSTRAINT [IX_admin] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[admin] ON
+INSERT [dbo].[admin] ([id], [name], [pwd], [quanxian]) VALUES (1, N'admin', N'admin', NULL)
+INSERT [dbo].[admin] ([id], [name], [pwd], [quanxian]) VALUES (2, N'd', N'd', NULL)
+SET IDENTITY_INSERT [dbo].[admin] OFF
+/****** Object:  Table [dbo].[users]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[users](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NULL,
+	[pwd] [varchar](50) NULL,
+	[realname] [varchar](50) NULL,
+	[sex] [varchar](50) NULL,
+	[age] [varchar](50) NULL,
+	[card] [varchar](50) NULL,
+	[address] [varchar](200) NULL,
+	[phone] [varchar](50) NULL,
+	[email] [varchar](100) NULL,
+	[code] [varchar](50) NULL,
+	[type] [int] NULL,
+ CONSTRAINT [IX_users] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[users] ON
+INSERT [dbo].[users] ([id], [name], [pwd], [realname], [sex], [age], [card], [address], [phone], [email], [code], [type]) VALUES (18, N'a862351901', N'a123789', N'任振华', N'男', N'18', N'4114585888965265485', N'郑州', N'15518107074', N'862351901@qq.com', N'477200', 1)
+SET IDENTITY_INSERT [dbo].[users] OFF
+/****** Object:  Table [dbo].[types]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[types](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [char](10) NULL,
+ CONSTRAINT [IX_type] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_types] UNIQUE NONCLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[types] ON
+INSERT [dbo].[types] ([id], [name]) VALUES (8, N'标准单人间')
+INSERT [dbo].[types] ([id], [name]) VALUES (9, N'标准双人间')
+INSERT [dbo].[types] ([id], [name]) VALUES (10, N'标准三人间')
+INSERT [dbo].[types] ([id], [name]) VALUES (11, N'豪华单人间')
+INSERT [dbo].[types] ([id], [name]) VALUES (14, N'情侣套房  ')
+INSERT [dbo].[types] ([id], [name]) VALUES (15, N'情趣包房  ')
+INSERT [dbo].[types] ([id], [name]) VALUES (12, N'豪华双人间')
+INSERT [dbo].[types] ([id], [name]) VALUES (13, N'豪华三人间')
+INSERT [dbo].[types] ([id], [name]) VALUES (16, N'钟点房    ')
+SET IDENTITY_INSERT [dbo].[types] OFF
+/****** Object:  Table [dbo].[tates]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tates](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [char](10) NULL,
+ CONSTRAINT [IX_tate] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[tates] ON
+INSERT [dbo].[tates] ([id], [name]) VALUES (1, N'推荐客房  ')
+SET IDENTITY_INSERT [dbo].[tates] OFF
+/****** Object:  Table [dbo].[paihang]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[paihang](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[bookid] [int] NULL,
+	[name] [varchar](50) NULL,
+	[times] [datetime] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[loanbook]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[loanbook](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[users] [varchar](50) NOT NULL,
+	[books] [varchar](50) NOT NULL,
+	[price] [varchar](50) NULL,
+	[sumday] [varchar](50) NULL,
+	[begintime] [datetime] NULL,
+	[endtime] [datetime] NULL,
+	[continueday] [varchar](50) NULL,
+	[continuetime] [datetime] NULL,
+	[flag] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'users'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'图书' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'books'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'每日租金' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'price'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'借阅天数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'sumday'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'开始借书时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'begintime'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'还书时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'endtime'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'续借天数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'continueday'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'续借还书日期' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'continuetime'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'loanbook', @level2type=N'COLUMN',@level2name=N'flag'
+GO
+SET IDENTITY_INSERT [dbo].[loanbook] ON
+INSERT [dbo].[loanbook] ([id], [users], [books], [price], [sumday], [begintime], [endtime], [continueday], [continuetime], [flag]) VALUES (5, N'6', N'10', N'1', N'10', CAST(0x00009AA80014E9E0 AS DateTime), CAST(0x00009AB20014E9E0 AS DateTime), N'1', NULL, N'未离开')
+INSERT [dbo].[loanbook] ([id], [users], [books], [price], [sumday], [begintime], [endtime], [continueday], [continuetime], [flag]) VALUES (20, N'15', N'30', N'10', N'222', CAST(0x00009E9F0102C702 AS DateTime), CAST(0x00009F7D0102C702 AS DateTime), NULL, NULL, N'未离开')
+INSERT [dbo].[loanbook] ([id], [users], [books], [price], [sumday], [begintime], [endtime], [continueday], [continuetime], [flag]) VALUES (6, N'6', N'9', N'3', N'20', CAST(0x00009AA80014FBA2 AS DateTime), CAST(0x00009ABC0014FBA2 AS DateTime), N'20', CAST(0x00009AD00014FBA2 AS DateTime), N'未离开')
+INSERT [dbo].[loanbook] ([id], [users], [books], [price], [sumday], [begintime], [endtime], [continueday], [continuetime], [flag]) VALUES (21, N'16', N'29', N'250', N'3', CAST(0x00009EA1014755A1 AS DateTime), CAST(0x00009EA4014755A1 AS DateTime), NULL, NULL, N'未离开')
+INSERT [dbo].[loanbook] ([id], [users], [books], [price], [sumday], [begintime], [endtime], [continueday], [continuetime], [flag]) VALUES (22, N'16', N'31', N'250', N'3', CAST(0x00009EA101478517 AS DateTime), CAST(0x00009EA401478517 AS DateTime), NULL, NULL, N'未离开')
+INSERT [dbo].[loanbook] ([id], [users], [books], [price], [sumday], [begintime], [endtime], [continueday], [continuetime], [flag]) VALUES (24, N'18', N'28', N'250', N'10', CAST(0x0000A769012D2F50 AS DateTime), CAST(0x0000A773012D2F50 AS DateTime), NULL, NULL, N'未离开')
+SET IDENTITY_INSERT [dbo].[loanbook] OFF
+/****** Object:  Table [dbo].[books]    Script Date: 05/05/2017 21:46:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[books](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](200) NULL,
+	[author] [varchar](50) NULL,
+	[publishing] [varchar](200) NULL,
+	[number] [varchar](100) NULL,
+	[price] [varchar](50) NULL,
+	[storage] [int] NULL,
+	[brief] [varchar](500) NULL,
+	[type] [int] NULL,
+	[tate] [int] NULL,
+	[sums] [int] NULL,
+	[imgpath] [varchar](200) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[books] ON
+INSERT [dbo].[books] ([id], [name], [author], [publishing], [number], [price], [storage], [brief], [type], [tate], [sums], [imgpath]) VALUES (27, N'总统套房', N'002', N'五星', N'电视', N'222', 7, N'GOOD', 12, 1, 3, N'bookimg/1.jpg')
+INSERT [dbo].[books] ([id], [name], [author], [publishing], [number], [price], [storage], [brief], [type], [tate], [sums], [imgpath]) VALUES (28, N'副总统套房', N'003', N'五星', N'空调', N'250', 6, N'GOOD', 16, 1, 3, N'bookimg/2.jpg')
+INSERT [dbo].[books] ([id], [name], [author], [publishing], [number], [price], [storage], [brief], [type], [tate], [sums], [imgpath]) VALUES (29, N'总统秘书套房', N'004', N'五星', N'电视', N'250', 9, N'GOOD', 8, 1, 1, N'bookimg/3.jpg')
+INSERT [dbo].[books] ([id], [name], [author], [publishing], [number], [price], [storage], [brief], [type], [tate], [sums], [imgpath]) VALUES (30, N'总统小蜜套房', N'005', N'五星', N'电视', N'10', 9, N'GOOD', 14, 1, 1, N'bookimg/4.jpg')
+INSERT [dbo].[books] ([id], [name], [author], [publishing], [number], [price], [storage], [brief], [type], [tate], [sums], [imgpath]) VALUES (31, N'总统二奶套房', N'006', N'五星', N'电视', N'250', 8, N'GOOD', 9, 1, 2, N'bookimg/1.jpg')
+SET IDENTITY_INSERT [dbo].[books] OFF
+/****** Object:  Default [DF_books_sums]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[books] ADD  CONSTRAINT [DF_books_sums]  DEFAULT (0) FOR [sums]
+GO
+/****** Object:  Default [DF_books_imgpath]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[books] ADD  CONSTRAINT [DF_books_imgpath]  DEFAULT ('bookimg/emptybook.gif') FOR [imgpath]
+GO
+/****** Object:  Default [DF_loanbook_begintime]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[loanbook] ADD  CONSTRAINT [DF_loanbook_begintime]  DEFAULT (getdate()) FOR [begintime]
+GO
+/****** Object:  Default [DF_loanbook_flag]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[loanbook] ADD  CONSTRAINT [DF_loanbook_flag]  DEFAULT ('未离开') FOR [flag]
+GO
+/****** Object:  Default [DF_paihang_times]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[paihang] ADD  CONSTRAINT [DF_paihang_times]  DEFAULT (getdate()) FOR [times]
+GO
+/****** Object:  Default [DF_users_type]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[users] ADD  CONSTRAINT [DF_users_type]  DEFAULT (1) FOR [type]
+GO
+/****** Object:  Check [CK_books]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[books]  WITH NOCHECK ADD  CONSTRAINT [CK_books] CHECK  (([storage] >= 0))
+GO
+ALTER TABLE [dbo].[books] CHECK CONSTRAINT [CK_books]
+GO
+/****** Object:  ForeignKey [FK_books_types]    Script Date: 05/05/2017 21:46:35 ******/
+ALTER TABLE [dbo].[books]  WITH CHECK ADD  CONSTRAINT [FK_books_types] FOREIGN KEY([type])
+REFERENCES [dbo].[types] ([id])
+GO
+ALTER TABLE [dbo].[books] CHECK CONSTRAINT [FK_books_types]
+GO
